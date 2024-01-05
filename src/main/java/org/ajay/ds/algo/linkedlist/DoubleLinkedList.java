@@ -1,5 +1,7 @@
 package org.ajay.ds.algo.linkedlist;
 
+import org.ajay.ds.algo.linkedlist.node.DListNode;
+
 public class DoubleLinkedList<T> {
 	
 	private DListNode<T> head;

@@ -1,32 +1,39 @@
-package org.ajay.ds.algo.linkedlist;
+package org.ajay.ds.algo.linkedlist.node;
 
-public class ListNode<T> {
+public class DListNode<T> {
 	
 	private T data;
-	private ListNode<T> next;
+	private DListNode<T> next;
+	private DListNode<T> prev;
 	
-	public ListNode(){}
-	public ListNode(T data){
+	public DListNode(){}
+	public DListNode(T data){
 		this.data = data;
-		next = null;
+		this.next = null;
+		this.prev = null;
 	}
-	
 	public T getData() {
 		return data;
 	}
 	public void setData(T data) {
 		this.data = data;
 	}
-	public ListNode<T> getNext() {
+	public DListNode<T> getNext() {
 		return next;
 	}
-	public void setNext(ListNode<T> next) {
+	public void setNext(DListNode<T> next) {
 		this.next = next;
+	}
+	public DListNode<T> getPrev() {
+		return prev;
+	}
+	public void setPrev(DListNode<T> prev) {
+		this.prev = prev;
 	}
 	
 	@Override
 	public String toString() {
-		return String.valueOf(data);
+		return String.valueOf(this.data);
 	}
 	@Override
 	public int hashCode() {
@@ -34,6 +41,7 @@ public class ListNode<T> {
 		int result = 1;
 		result = prime * result + ((data == null) ? 0 : data.hashCode());
 		result = prime * result + ((next == null) ? 0 : next.hashCode());
+		result = prime * result + ((prev == null) ? 0 : prev.hashCode());
 		return result;
 	}
 	@Override
@@ -44,8 +52,7 @@ public class ListNode<T> {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		@SuppressWarnings("unchecked")
-		ListNode<T> other = (ListNode<T>) obj;
+		DListNode<?> other = (DListNode<?>) obj;
 		if (data == null) {
 			if (other.data != null)
 				return false;
@@ -56,8 +63,12 @@ public class ListNode<T> {
 				return false;
 		} else if (!next.equals(other.next))
 			return false;
+		if (prev == null) {
+			if (other.prev != null)
+				return false;
+		} else if (!prev.equals(other.prev))
+			return false;
 		return true;
 	}
 
-	
 }

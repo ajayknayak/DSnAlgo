@@ -1,5 +1,7 @@
 package org.ajay.ds.algo.linkedlist;
 
+import org.ajay.ds.algo.linkedlist.node.ListNode;
+
 public class SingleLinkedList<T> {
 
 	private ListNode<T> head;
