@@ -10,6 +10,10 @@ public class SingleLinkedList<T> {
 		this.head = null;
 	}
 	
+	public ListNode<T> getHead() {
+		return head;
+	}
+
 	/**
 	 * Add element ti linked list
 	 * @param data
@@ -133,6 +137,35 @@ public class SingleLinkedList<T> {
 		return sb.toString();
 	}
 	
+	public String printList(ListNode<T> head) {
+		StringBuilder sb = new StringBuilder("[");
+		ListNode<T> tmpHead = head;
+		while(null != tmpHead){
+			sb.append(tmpHead.getData());
+			if(tmpHead.getNext() != null){
+				sb.append(",");
+			}
+			tmpHead = tmpHead.getNext();
+		}
+		sb.append("]");
+		return sb.toString();
+	}
 	
+	/**
+	 * This is used to reverse the linked list
+	 * @param head
+	 * @return
+	 */
+	public ListNode<T> reverseLinkedList(ListNode<T> head){
+		
+		ListNode<T> tmp = null;
+		while(null != head){
+			ListNode<T> nextNode = head.getNext();
+			head.setNext(tmp);
+			tmp = head;
+			head = nextNode;
+		}
+		return tmp;
+	}
 	
 }
