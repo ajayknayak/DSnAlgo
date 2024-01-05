@@ -10,6 +10,10 @@ public class SingleLinkedList<T> {
 		this.head = null;
 	}
 	
+	/**
+	 * Add element ti linked list
+	 * @param data
+	 */
 	public void add(T data){
 		if(null == head){
 			head = new ListNode<T>(data);
@@ -22,6 +26,12 @@ public class SingleLinkedList<T> {
 		tmpHead.setNext(new ListNode<T>(data));
 	}
 	
+	/**
+	 * Add element to linked list at position
+	 * @param data
+	 * @param pos
+	 * @throws ArrayIndexOutOfBoundsException
+	 */
 	public void addAt(T data, int pos) throws ArrayIndexOutOfBoundsException{
 		if(pos < 1 || pos > length()+1){
 			throw new ArrayIndexOutOfBoundsException("Position out of bound");
@@ -43,6 +53,11 @@ public class SingleLinkedList<T> {
 		tmpHead.setNext(node);
 	}
 	
+	/**
+	 * Delete an elements from the linked list
+	 * @param data
+	 * @throws Exception
+	 */
 	public void delete(T data)throws Exception{
 		
 		ListNode<T> tmpNode = head;
@@ -61,6 +76,11 @@ public class SingleLinkedList<T> {
 			throw new Exception("Node Not Found");
 		}
 	}
+	/**
+	 * Delete by Index
+	 * @param index
+	 * @throws Exception
+	 */
 	public void deleteByIndex(int index)throws Exception{
 		int length = length();
 		if(index > length || index < 1){
@@ -84,6 +104,10 @@ public class SingleLinkedList<T> {
 		}
 	}
 	
+	/**
+	 * Find the length
+	 * @return
+	 */
 	public int length(){
 		int lenght = 0;
 		ListNode<T> tmpHead = head;
