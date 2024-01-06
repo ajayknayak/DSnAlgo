@@ -152,7 +152,7 @@ public class SingleLinkedList<T> {
 	}
 	
 	/**
-	 * This is used to reverse the linked list
+	 * This is used to reverse the linked list.
 	 * @param head
 	 * @return
 	 */
